@@ -1,0 +1,26 @@
+{% extends 'template.html' %}
+
+{%block head%}
+<title>Customer information</title>
+{%endblock%}
+
+{%block body%}
+    <h1>Update owner information</h1>
+    <hr>
+    <form action='/owner/update/{{post.owner_ID}}' method='POST'>
+        owner_name: <input type="text" name="name" id="name" value={{post.owner_name}}>
+        <br>
+        <br>
+        Address:<input type="text" name="address" id="address" value={{post.Address}}>
+        <br>
+        <br>
+        Paintings Submitted:<input type="number" name="s" id="s" value={{post.Submitted}}>
+        <br>
+        <br>
+        Paintings_returned:<input type="number" name="r" id="r" value={{post.Returned}}>
+        <br>
+        <br>
+        <input type="submit" value="Enter">
+    </form>
+    <hr>
+    {%endblock%}    

@@ -1,0 +1,46 @@
+{% extends 'template.html' %}
+
+{%block head%}
+<title>Customer information</title>
+{%endblock%}
+
+{%block body%}
+    <h1>Employee information</h1>
+    <hr>
+    <form action='/employee' method='POST'>
+        Employee_id: <input class="form-control" type='number' name="e_id" id="e_id">
+        <br>
+        <br>
+        Employee_name: <input  class="form-control"type="text" name="name" id="name">
+        <br>
+        <br>
+        Address:<input class="form-control" type="text" name="address" id="address">
+        <br>
+        <br>
+        Position:<input class="form-control" type="text" name="pos" id="pos">
+        <br>
+        <br>
+        <input type="submit" value="Enter">
+    </form>
+    <hr>
+
+    <table style="border: 100px;">
+        <tr>
+            <th align="center">Employee_ID</th>
+            <th align="center">Employee_Name</th>
+            <th align="center">Address</th>
+            <th align="center">Position</th>
+        </tr>
+        {% for post in posts %}
+        <tr>
+            <td><small>{{post.emp_ID}}</small></td>
+            <td><small>{{post.emp_name}}</td>
+            <td><small>{{post.Address}}</td>
+            <td><small>{{post.Position}}</small></td>
+            <td> <a class="btn btn-danger" href='/employee/delete/{{post.emp_ID}}'><small>Delete</small></a></td>
+            <td> <a class="btn btn-primary" href='/employee/update/{{post.emp_ID}}'><small>Update</small></a></td>
+        </tr>
+        {% endfor %}
+       
+    </table>
+{%endblock%}

@@ -1,0 +1,50 @@
+{% extends 'template.html' %}
+
+{%block head%}
+<title>Customer information</title>
+{%endblock%}
+
+{%block body%}
+    <h1>Discount information</h1>
+    <hr>
+    <form action='/discount' method='POST'>
+        <label for="ID">ID:</label>
+        <input class="form-control" type="number" name="id" id="id" placeholder="Enter ID" aria-label="Enter ID">
+        <br>
+        <br>
+        <label for="Category">Category:</label>
+        <input class="form-control" type="text" name="category" id="category" placeholder="Enter Category" aria-label="Enter Category">
+        <br>
+        <br>
+        <label for="Discount">Discount:</label>
+        <input class="form-control" type="number" name="discount" id="discount" placeholder="Enter Discount" aria-label="Enter Discount">
+        <br>
+        <br>
+        <label for="Name">Customer Name:</label>
+        <input class="form-control" type="text" name="name" id="name" placeholder="Enter Name" aria-label="Enter Name">
+        <br>
+        <input type="submit" value="Enter">
+    </form>
+    <hr>
+
+    <table style="border: 100px;">
+        <tr>
+            <th align="center">Sl.no</th>
+            <th align="center">Customer</th>
+            <th align="center">Membership_Category</th>
+            <th align="center">Discount</th>
+        </tr>
+        {% for post in posts %}
+        <tr>
+            <td><small>{{post.id}}</small></td>
+            <td><small>{{post.customer_ID}}</small></td>
+            <td><small>{{post.Membership_category}}</small></td>
+            <td><small>{{post.discount}}</small></td>
+            <td> <a class="btn btn-danger" href='/discount/delete/{{post.id}}'><small>Delete</small></a></td>
+            <td> <a class="btn btn-primary" href='/discount/update/{{post.id}}'><small>Update</small></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <br>
+{%endblock%}

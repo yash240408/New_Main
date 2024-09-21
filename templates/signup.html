@@ -1,0 +1,25 @@
+{% extends 'template2.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{%block head%}
+<title>Login</title>
+{%endblock%}
+
+{%block body%}
+    <hr>
+    <form class="form-signin" method="POST" action="/signup">
+        <h2 class="form-signin-check">Sign up</h2>
+        {{form.hidden_tag()}}
+        {{wtf.form_field(form.username)}}
+        {{wtf.form_field(form.password)}}
+        {{wtf.form_field(form.email)}}
+        <button class="btn btn-success" type="submit">Sign up &raquo</button>
+    </form>
+    <hr>
+    <h3 style="text-align: center;">Have an account? Login here!</h3>
+    <div style="text-align: center">
+        <a class="btn btn-success" href="/">Sign In &raquo;</a>
+    </div>
+    <br>
+    <br>
+{%endblock%}

@@ -1,0 +1,18 @@
+{% extends 'template.html' %}
+
+{%block head%}
+<title>Customer information</title>
+{%endblock%}
+
+{%block body%}
+    <h1>Update Employee detail</h1>
+    <hr>
+    <form action='/employee/update/{{post.emp_ID}}' method='POST'>
+        Address:<input type="text" name="address" id="address" value={{post.Address}}>
+        <br>
+        <br>
+        Position:<input type="text" name="pos" id="pos" value={{post.Position}}>
+        <input type="submit" value="Enter">
+    </form>
+    <hr>
+{%endblock%}    

@@ -1,0 +1,57 @@
+{% extends 'template.html' %}
+
+{%block head%}
+<title>Customer information</title>
+{%endblock%}
+
+{%block body%}
+    <h1>Owner information</h1>
+    <hr>
+    <form action='/owner' method='POST'>
+        <label for="Owner ID">Owner ID:</label>
+        <input class="form-control" type="number" name="o_id" id="o_id" placeholder="Enter owner id" aria-label="Enter owner id">
+        <br>
+        <br>
+        <label for="owner name">Owner name:</label>
+        <input class="form-control" type="text" name="name" id="name" placeholder="Enter owner name" aria-label="Enter owner name">
+        <br>
+        <br>
+        <label for="Address">Address:</label>
+        <input class="form-control" type="text" name="address" id="address" placeholder="Address" aria-label="Address">
+        <br>
+        <br>
+        <label for="Paintings Submitted">Paintings Submitted:</label>
+        <input class="form-control" type="number" name="s" id="s" placeholder="Enter Paintings submitted" aria-label="Enter Paintings submitted">
+        <br>
+        <br>
+        <label for="Paintings_returned">Paintings returned:</label>
+        <input class="form-control" type="number" name="r" id="r" placeholder="Enter paintings returned" aria-label="Enter Paintings returned">
+        <br>
+        <br>
+        <input type="submit" value="Enter">
+    </form>
+    <hr>
+    <table style="border: 100px;">
+        <tr>
+            <th align="center">Owner ID</th>
+            <th align="center">Owner Name</th>
+            <th align="center">Address</th>
+            <th align="center">Painting Submitted</th>
+            <th align="center">Painting Returned</th>
+        </tr>
+        {% for post in posts %}
+        <tr>
+            <td><small>{{post.owner_ID}}</small></td>
+            <td><small>{{post.owner_name}}</small></td>
+            <td><small>{{post.Address}}</small></td>
+            <td><small>{{post.Submitted}}</small></td>
+            <td><small>{{post.Returned}}</small></td>
+            <td> <a class="btn btn-danger" href='/owner/delete/{{post.owner_ID}}'><small>Delete</small></a></td>
+            <td> <a class="btn btn-primary" href='/owner/update/{{post.owner_ID}}'><small>Update</small></a></td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+    <br>
+    <br>
+{%endblock%}

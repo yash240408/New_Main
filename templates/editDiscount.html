@@ -1,0 +1,20 @@
+{% extends 'template.html' %}
+
+{%block head%}
+<title>Update discount information</title>
+{%endblock%}
+
+{%block body%}
+    <h1>Customer Name</h1>
+    <hr>
+    <form action='/discount/update/{{post.id}}' method='POST'>
+        Category: <input type="text" name="category" id="category" value={{post.Membership_category}} >
+        <br>
+        <br>
+        Discount:<input type="number" name="discount" id="discount" value={{post.Discount}}>
+        <br>
+        <br>
+        <input type="submit" value="Enter">
+    </form>
+    <hr>
+{%endblock%}    

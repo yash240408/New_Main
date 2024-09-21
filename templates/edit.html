@@ -1,0 +1,28 @@
+{% extends 'template.html' %}
+
+{%block head%}
+<title>Update</title>
+{%endblock%}
+
+{%block body%}
+    <h1>Update Customer information</h1>
+    <hr>
+    <form action='/customer/update/{{post.customer_ID}}' method='POST'>
+        Customer_name: <input type="text" name="name" id="name"  value={{post.customer_name}}>
+        <br>
+        <br>
+        Address:<input type="text" name="address" id="address"  value={{post.Address}}>
+        <br>
+        <br>
+        Membership_category:<input type="text" name="member" id="member"  value={{post.Membership_category}}>
+        <br>
+        <br>
+        Painting_info:<input type="text" name="info" id="info"  value={{post.Painting_info}}>
+        <br>
+        <br>
+        Payment_details:<input type="number" name="details" id="details"  value={{post.Payment_details}}>
+        <br>
+        <br>
+        <input type="submit" value="Update">
+    </form>
+{%endblock%}

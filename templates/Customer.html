@@ -1,0 +1,64 @@
+{% extends 'template.html' %}
+
+{%block head%}
+<title>Customer information</title>
+{%endblock%}
+
+{%block body%}
+    <h1>Customer information</h1>
+    <hr>
+    <form action='/customer' method='POST'>
+        <label for="Customer ID">Customer ID:</label>
+        <input class="form-control" type="number" name="cust_id" id="cust_id" placeholder="Enter Customer id" aria-label="Enter Customer id">
+        <br>
+        <br>
+        <label for="Customer name">Customer name:</label>
+        <input class="form-control" type="text" name="name" id="name" placeholder="Enter Customer name" aria-label="Enter Customer name">
+        <br>
+        <br>
+        <label for="Address">Address:</label>
+        <input class="form-control" type="text" name="address" id="address" placeholder="Enter Address" aria-label="Enter Address">
+        <br>
+        <br>
+        <label for="Category">Membership category:</label>
+        <input class="form-control" type="text" name="member" id="member" placeholder="Enter Membership details" aria-label="Enter Membership Category">
+        <br>
+        <br>
+        <label for="Painting information">Painting information:</label>
+        <input class="form-control" type="text" name="info" id="info"" placeholder="Enter Painting information" aria-label="Enter Painting information">
+        <br>
+        <br>
+        <label for="Payment_details">Payment details:</label>
+        <input class="form-control" type="number" name="details" id="details" placeholder="Enter Payment details" aria-label="Enter Payment details">
+        <br>
+        <br>
+        <input type="submit" value="Enter">
+    </form>
+    <hr>
+
+    <table style="border: 100px;">
+        <tr>
+            <th align="center">Customer_ID</th>
+            <th align="center">Customer_Name</th>
+            <th align="center">Address</th>
+            <th align="center">Membership_category</th>
+            <th align="center">Painting_info</th>
+            <th align="center">Payment_details</th>
+        </tr>
+        {% for post in posts %}
+        <tr>
+            <td><small>{{post.customer_ID}}</small></td>
+            <td><small>{{post.customer_name}}</small></td>
+            <td><small>{{post.Address}}</small></td>
+            <td><small>{{post.Membership_category}}</small></td>
+            <td><small>{{post.Painting_info}}</small></td>
+            <td><small>{{post. Payment_details}}</small></td>
+            <td> <a class="btn btn-danger" href='/customer/delete/{{post.customer_ID}}'><small>Delete</small></a></td>
+            <td> <a class="btn btn-primary" href='/customer/update/{{post.customer_ID}}'><small>Update</small></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <br>
+    <br>
+{%endblock%}
